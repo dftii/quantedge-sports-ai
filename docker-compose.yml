@@ -1,0 +1,14 @@
+services:
+  api:
+    build: ./backend
+    container_name: quantedge-api
+    ports:
+      - "8000:8000"
+    environment:
+      QUANTEDGE_AUTO_SEED: "1"
+    volumes:
+      - quantedge-data:/data
+    restart: unless-stopped
+
+volumes:
+  quantedge-data:
